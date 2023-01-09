@@ -66,7 +66,19 @@
 							</tr>
 						</thead>
 						<tbody>
-
+							${photosInCart.map(function (photo) {
+								return `
+									<tr>
+										<td><img alt="${photo.description}" src="${photo.url}"></td>
+										<td>${photo.name}</td>
+										<td>$${photo.price}</td>
+										<td class="text-right">
+											<button data-remove-from-cart="${photo.id}" aria-label="Remove '${photo.name}'">
+												&#10006;
+											</button>
+										</td>
+									</tr>`;
+							}).join('')}
 						</tbody>
 					</table>
 					<p class="text-right">
